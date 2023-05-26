@@ -1,5 +1,4 @@
 import { Pressable, Text, View } from "react-native";
-import { useNavigation } from "expo-router";
 
 export default function App() {
   return (
@@ -7,7 +6,7 @@ export default function App() {
       <View>
         <View>
           <Pressable className="bg-yellow-500 transition-colors active:bg-yellow-600 h- rounded-lg text-center">
-            <Text className="font-semibold text-xl text-center font-medium">RANKING DA SEMANA</Text>
+            <Text className="font-semibold text-xl text-center">RANKING DA SEMANA</Text>
           </Pressable>
         </View>
         <View className="flex-row py-4 justify-between px-3 flex-grow-0">
