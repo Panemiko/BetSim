@@ -1,6 +1,9 @@
+import { useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
 export default function App() {
+  const { push } = useRouter();
+
   return (
     <View className="p-5">
       <View>
@@ -15,7 +18,10 @@ export default function App() {
           <Pressable className="bg-yellow-500 transition-colors active:bg-yellow-600 h- p-5 rounded-lg">
             <Text className="font-semibold text-xl">CRIAR PARTIDA</Text>
           </Pressable>
-          <Pressable className="bg-yellow-500 transition-colors active:bg-yellow-600 p-5 rounded-lg">
+          <Pressable
+            onPress={() => push("/(auth)/signup")}
+            className="bg-yellow-500 transition-colors active:bg-yellow-600 p-5 rounded-lg"
+          >
             <Text className="font-semibold text-xl">ENTRAR</Text>
           </Pressable>
         </View>

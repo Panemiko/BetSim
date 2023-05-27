@@ -8,7 +8,15 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "prettier",
   ],
-  overrides: [],
+  overrides: [
+    {
+      files: ["*.js"],
+      rules: {
+        "no-undef": "off",
+        "@typescript-eslint/no-var-requires": "off",
+      },
+    },
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
@@ -35,6 +43,5 @@ module.exports = {
     "react/prop-types": "off",
     "no-param-reassign": "off",
     "no-console": "off",
-    "no-undef": "off",
   },
 };
