@@ -19,7 +19,7 @@ export default function App() {
             <Text className="font-semibold text-xl">CRIAR PARTIDA</Text>
           </Pressable>
           <Pressable
-            onPress={() => push("/(auth)/signup")}
+            onPress={() => push("/auth/signup")}
             className="bg-yellow-500 transition-colors active:bg-yellow-600 p-5 rounded-lg"
           >
             <Text className="font-semibold text-xl">ENTRAR</Text>
