@@ -1,31 +1,43 @@
-import { useRouter } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import { Button, XGroup, XStack, YGroup, YStack } from "tamagui";
+import { Flag, QrCode, Gamepad } from "@tamagui/lucide-icons";
 
 export default function App() {
-  const { push } = useRouter();
-
   return (
-    <View className="p-5">
-      <View>
-        <View>
-          <Pressable className="bg-yellow-500 transition-colors active:bg-yellow-600 h- rounded-lg text-center">
-            <Text className="font-semibold text-xl text-center">
-              RANKING DA SEMANA
-            </Text>
-          </Pressable>
-        </View>
-        <View className="flex-row py-4 justify-between px-3 flex-grow-0">
-          <Pressable className="bg-yellow-500 transition-colors active:bg-yellow-600 h- p-5 rounded-lg">
-            <Text className="font-semibold text-xl">CRIAR PARTIDA</Text>
-          </Pressable>
-          <Pressable
-            onPress={() => push("/auth/signup")}
-            className="bg-yellow-500 transition-colors active:bg-yellow-600 p-5 rounded-lg"
-          >
-            <Text className="font-semibold text-xl">ENTRAR</Text>
-          </Pressable>
-        </View>
-      </View>
-    </View>
+    <YGroup paddingHorizontal="$4" paddingVertical="$8">
+      <YGroup.Item>
+        <Button
+          theme="yellow"
+          fontSize={"$8"}
+          size={"$7"}
+          fontWeight={"medium"}
+        >
+          LEADERBOARD
+        </Button>
+      </YGroup.Item>
+      <YGroup.Item>
+        <XGroup>
+          <XGroup.Item>
+            <Button
+              theme="blue"
+              width={"50%"}
+              scaleIcon={2}
+              aspectRatio={1}
+              size="$9"
+              icon={Gamepad}
+            ></Button>
+          </XGroup.Item>
+          <XGroup.Item>
+            <Button
+              theme="purple"
+              size="$9"
+              scaleIcon={2}
+              aspectRatio={1}
+              width={"50%"}
+              icon={QrCode}
+            ></Button>
+          </XGroup.Item>
+        </XGroup>
+      </YGroup.Item>
+    </YGroup>
   );
 }

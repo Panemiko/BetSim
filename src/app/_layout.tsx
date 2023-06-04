@@ -1,14 +1,37 @@
 import { Slot } from "expo-router";
-import { StatusBar, Text, View } from "react-native";
+import { StatusBar } from "react-native";
+import { TamaguiProvider, Text, XStack, YStack } from "tamagui";
+import { useFonts } from "expo-font";
+import tamaguiConfig from "../../tamagui.config";
 
 export default function AppLayout() {
+  const [loaded] = useFonts({
+    Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+    InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
-    <View className="bg-zinc-900 h-screen py-12">
-      <Text className="text-4xl text-center text-zinc-500 font-bold tracking-widest">
-        BetSim
-      </Text>
-      <Slot />
-      <StatusBar barStyle={"light-content"} />
-    </View>
+    <TamaguiProvider config={tamaguiConfig} defaultTheme="dark">
+      <YStack backgroundColor={"$background"} fullscreen>
+        <XStack
+          justifyContent="center"
+          paddingVertical="$8"
+          alignItems="center"
+        >
+          <Text fontSize={"$10"} color="$yellow10">
+            BET
+          </Text>
+          <Text fontSize={"$10"} color="$yellow11" fontWeight={"bold"}>
+            SIM
+          </Text>
+        </XStack>
+        <Slot />
+        <StatusBar barStyle={"light-content"} />
+      </YStack>
+    </TamaguiProvider>
   );
 }
